@@ -1,0 +1,45 @@
+.card-wrapper {
+  width: 451px;
+  height: 279px;
+}
+.movie-img {
+  width: 183px;
+  height: 100%;
+  object-fit: cover;
+}
+.card-title {
+  display: inline;
+  white-space: pre-wrap;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 7px;
+}
+
+.card-row {
+  height: 100%;
+}
+
+.card-col-info {
+  width: 258px;
+  padding: 10px 0;
+}
+
+.card-date {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.card-genre {
+  margin-bottom: 7px;
+}
+
+.card-desc {
+  max-width: 100%;
+}
+.card-spin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
