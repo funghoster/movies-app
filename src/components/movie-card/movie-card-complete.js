@@ -1,9 +1,7 @@
 import React from 'react'
-import { Col, Card, Row, Image, Tag, Space, Typography } from 'antd'
+import { Col, Card, Row, Image, Tag, Space, Typography, Skeleton } from 'antd'
 const { Title, Text, Paragraph } = Typography
 import { format } from 'date-fns'
-
-import notImg from './free-icon-no-camera-7454976.png'
 
 import './movie-card.css'
 
@@ -11,15 +9,17 @@ const MovieCardComplete = ({ movieList }) => {
   const { movies } = movieList
   return movies.map((movie) => {
     const { id, img, title, releaseDate, overview } = movie
-    const setImg = img ? `https://image.tmdb.org/t/p/w500${img}` : notImg
+    const setImg = img ? (
+      <Image className={'movie-img'} height={'100%'} width={183} src={`https://image.tmdb.org/t/p/w500${img}`} />
+    ) : (
+      <Skeleton.Image className={'skeleton-img'} />
+    )
     const dateMovie = releaseDate ? format(new Date(releaseDate), 'PP') : null
     return (
       <Col key={id}>
         <Card className={'card-wrapper'} hoverable bodyStyle={{ padding: 0, height: '100%' }}>
           <Row className="card-row" wrap={false} gutter={[20]}>
-            <Col>
-              <Image className={'movie-img'} height={'100%'} width={183} src={setImg} />
-            </Col>
+            <Col>{setImg}</Col>
             <Col className="card-col-info">
               <Paragraph ellipsis={{ rows: 2, expandable: false, symbol: '' }}>
                 <Title className="card-title" level={4}>

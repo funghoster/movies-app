@@ -18,11 +18,12 @@ class TheMovieDBConnected {
     return await res.json()
   }
 
-  async getSearchResult(page) {
+  async getSearchResult(query, page) {
     const searchResult = await this.getResource(
-      `search/movie?query=return&include_adult=false&language=en-US&page=${page}`
+      `search/movie?query=${query}&include_adult=false&language=en-US&page=${page}`
     )
-    const res = searchResult.results.map((movie) => {
+    const arr = {}
+    arr.movies = searchResult.results.map((movie) => {
       return {
         id: movie.id,
         img: movie.poster_path,
@@ -32,7 +33,8 @@ class TheMovieDBConnected {
         overview: movie.overview,
       }
     })
-    return res
+    arr.totalPages = searchResult.total_results
+    return arr
   }
 
   async getGenre() {
