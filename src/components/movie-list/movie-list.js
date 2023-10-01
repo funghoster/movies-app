@@ -15,11 +15,12 @@ class MovieList extends Component {
   render() {
     const { loadingCards } = this.state
     const { isLoading, isError, isOffline } = this.props.dataStatus
-    const { moviesData: movies } = this.props
+    const { moviesData, ratingData } = this.props
     const connectionMessage = isOffline ? <ConnectionCheck /> : null
     const errorMessage = isError ? <MovieCardError /> : null
     const spinner = isLoading ? <MovieCardLoading loadingCards={loadingCards} /> : null
-    const elements = !isLoading && !isError ? <MovieCardComplete movieList={{ movies }} /> : null
+    const elements =
+      !isLoading && !isError ? <MovieCardComplete ratingData={ratingData} movieList={{ moviesData }} /> : null
 
     return (
       <Row gutter={[36, 36]} justify={'center'}>

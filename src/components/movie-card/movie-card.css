@@ -1,9 +1,9 @@
 .card-wrapper {
-  width: 451px;
+  width: 100%;
   height: 279px;
 }
 .movie-img {
-  width: 183px;
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }
@@ -12,16 +12,31 @@
   white-space: pre-wrap;
   width: 100%;
   margin-top: 0;
-  margin-bottom: 7px;
 }
-
-.card-row {
-  height: 100%;
+.card-title-wrapper {
+  display: block;
+  margin: 0;
 }
-
-.card-col-info {
-  width: 258px;
-  padding: 10px 0;
+.vote-average {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #e9d100;
+  border-radius: 100%;
+}
+.bad-rate {
+  border-color: #e90000;
+}
+.low-rate {
+  border-color: #e97e00;
+}
+.middle-rate {
+  border-color: #e9d100;
+}
+.hight-rate {
+  border-color: #66e900;
 }
 
 .card-date {
@@ -35,6 +50,7 @@
 
 .card-desc {
   max-width: 100%;
+  padding-right: 10px;
 }
 .card-spin {
   display: flex;
@@ -45,6 +61,14 @@
 }
 
 .skeleton-img {
-  width: 183px !important;
+  width: 100% !important;
   height: 100% !important;
+}
+
+@media (max-width: 991px) {
+  .movie-img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+  }
 }
