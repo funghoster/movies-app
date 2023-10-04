@@ -28,12 +28,12 @@ const MovieCardComplete = ({ movieList, ratingData }) => {
     )
     const dateMovie = releaseDate ? format(new Date(releaseDate), 'PP') : null
     return (
-      <Col xxl={12} xl={12} lg={12} key={id} style={{ display: 'flex', justifyContent: 'center' }}>
+      <Col xxl={12} xl={12} lg={12} key={id} style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
         <div className={'card-wrapper'}>
           <span className={'card-grid-img'}>{setImg}</span>
           <span className={'card-grid-header'}>
             <span>
-              <Title ellipsis={{ rows: 2 }} className="card-title" level={4}>
+              <Title ellipsis={{ rows: 1 }} className="card-title" level={4}>
                 {title}
               </Title>
             </span>
@@ -43,7 +43,7 @@ const MovieCardComplete = ({ movieList, ratingData }) => {
             <Text className="card-date" type="secondary">
               {dateMovie}
             </Text>
-            <Space className="card-genre" size={[0, 8]} wrap>
+            <Space className="card-genre" size={[0, 8]}>
               <MovieConsumer>
                 {({ genres }) => {
                   if (genres.length === 0) return
