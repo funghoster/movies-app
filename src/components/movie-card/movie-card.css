@@ -34,8 +34,12 @@
 .card-date {
   grid-column: 1/3;
 }
-.card-genre {
+.card-genres {
   grid-column: 1/3;
+  display: block;
+}
+.card-genre {
+  width: 100%;
 }
 .vote-average {
   display: flex;

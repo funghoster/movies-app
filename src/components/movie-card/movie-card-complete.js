@@ -43,23 +43,25 @@ const MovieCardComplete = ({ movieList, ratingData }) => {
             <Text className="card-date" type="secondary">
               {dateMovie}
             </Text>
-            <Space className="card-genre" size={[0, 8]}>
-              <MovieConsumer>
-                {({ genres }) => {
-                  if (genres.length === 0) return
-                  const genresList = genreId.map((id) => {
-                    const res = genres.filter((gr) => id === gr.id)
-                    console.log(res)
-                    return (
-                      <Tag key={id} style={{ marginBottom: 5 }}>
-                        {res[0].name}
-                      </Tag>
-                    )
-                  })
-                  return <>{genresList}</>
-                }}
-              </MovieConsumer>
-            </Space>
+            <Paragraph ellipsis={{ rows: 1 }}>
+              <Space className="card-genres" size={[0, 8]}>
+                <MovieConsumer>
+                  {({ genres }) => {
+                    if (genres.length === 0) return
+                    const genresList = genreId.map((id) => {
+                      const res = genres.filter((gr) => id === gr.id)
+                      console.log(res)
+                      return (
+                        <Tag className="card-genre" key={id} style={{ marginBottom: 5 }}>
+                          {res[0].name}
+                        </Tag>
+                      )
+                    })
+                    return <>{genresList}</>
+                  }}
+                </MovieConsumer>
+              </Space>
+            </Paragraph>
           </span>
           <span className="card-grid-body">
             <Paragraph className="card-desc" ellipsis={{ rows: 4, expandable: false, symbol: '' }}>
